@@ -1,0 +1,124 @@
+<!--Base-->
+{% extends 'partials/_base.html' %}
+
+{% load static %}
+
+{% block content %}
+<body>
+
+	<!-- Navigation -->
+	<nav class="site-navigation">
+		<div class="site-navigation-inner site-container">
+			<!-- <img src="{% static './images/site-logo.png' %}" alt="site logo"> -->
+			<div class="main-navigation">
+				<ul class="main-navigation__ul">
+					<!-- <li><a href="#">Homepage</a></li>
+					<li><a href="#">Page 1</a></li> -->
+					
+				</ul>
+			</div>
+			<div id="myBtn" class="burger-container" onclick="myFunction(this)">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+			<script>
+				function myFunction(x) {
+					x.classList.toggle("change");
+				}
+			</script>
+
+		</div>
+	</nav>
+	<!-- Navigation end -->
+
+		<!-- Books and CD -->
+		<section class="fh5co-books">
+			<div class="site-container">
+				
+				<!-- <h2 class="universal-h2 universal-h2-bckg">Çok Satanlar</h2> -->
+				<div class="books">
+					{% for book in books %}
+					<div class="single-book">
+						<a href="#" class="single-book__img">
+							<div class="single-book_download"></div>
+							<!-- <img src="{{book.img.url}}" alt="single book and cd"> -->
+							<a href="{% url 'books_detail' category_slug=book.category.slug book_id=book.id%}"><img src="{{book.img.url}}" alt="single book and cd"></a>
+							<!-- <div class="single-book_download">
+								<img src="{% static './images/download.svg' %}" alt="book image">
+							</div> -->
+						</a>
+						
+						<!-- <h4><a href="{% url 'books_detail' category_slug=book.category.slug book_id=book.id%}">{{book.name}}</a></h4> -->
+						<h4 class="single-book__title">{{book.name}}</h4>
+						<h3 class="single-book__title">-{{book.author}}-</h3>
+						<span class="single-book__price">{{book.price}} TL</span> 
+						<!-- star rating -->
+						<!-- <div class="rating">
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+						</div> -->
+						<!-- star rating end -->
+						
+						</div>
+					<!-- <div class="single-book">
+						<a href="#" class="single-book__img">
+							<img src="{% static './images/book-atomikAlışkanlıklar.png' %}" alt="single book and cd">
+							<div class="single-book_download">
+								<img src="{% static './images/download.svg' %}" alt="book image">
+							</div>
+						</a>
+						<h4 class="single-book__title">Atomik Alışkanlıklar</h4>
+						<span class="single-book__price">67.51 TL</span>
+						<!-- star rating -->
+						<!-- <div class="rating">
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+						</div> -->
+						<!-- star rating end 
+					</div>
+					<div class="single-book">
+						<a href="#" class="single-book__img">
+							<img src="{% static './images/book-şekerPortakalı.png' %}" alt="single book and cd">
+							<div class="single-book_download">
+								<img src="{% static './images/download.svg' %}" alt="book image">
+							</div>
+						</a>
+						<h4 class="single-book__title">Şeker Portakalı</h4>
+						<span class="single-book__price">24.75 TL</span>
+					</div>
+					<div class="single-book">
+						<a href="#" class="single-book__img">
+							<img src="{% static './images/book-veronikaÖlmekİstiyor.png' %}" alt="single book and cd">
+							<div class="single-book_download">
+								<img src="{% static './images/download.svg' %}" alt="book image">
+							</div>
+						</a>
+						<h4 class="single-book__title">Veronika Ölmek İstiyor</h4>
+						<span class="single-book__price">37.54 TL</span>
+					</div> -->
+					{% endfor %}
+				</div>
+				
+			</div>
+			
+		</section>
+		<!-- Books and CD end -->
+
+    {% include 'partials/_footer.html' %}
+
+	<!-- Scripts -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/slick.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
+
+{% endblock %}

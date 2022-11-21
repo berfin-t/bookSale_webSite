@@ -1,0 +1,217 @@
+<!--Base-->
+{% extends 'partials/_base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="site-navigation">
+		<div class="site-navigation-inner site-container">
+			<!-- <img src="{% static './images/site-logo.png' %}" alt="site logo"> -->
+			<div class="main-navigation">
+				<ul class="main-navigation__ul">
+					<!-- <li><a href="#">Category</a></li> -->
+					{% for category in categories %}
+					<li><a href="#">{{category.name}}</a></li> 
+					{% endfor %}
+
+				</ul>
+			</div>
+			<div id="myBtn" class="burger-container" onclick="myFunction(this)">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+			<script>
+				function myFunction(x) {
+					x.classList.toggle("change");
+				}
+			</script>
+
+		</div>
+	</nav>
+	<!-- Navigation end -->
+
+	<!-- Top banner -->
+	<section class="fh5co-top-banner">
+		{% for book in books %}
+		<div class="top-banner__inner site-container">
+			<div class="top-banner__image">
+				<img src="{{book.img.url}}" alt="author image">
+			</div>
+			<div class="top-banner__text">
+				<div class="top-banner__text-up">
+					<!-- <span class="brand-span">Hello! I'm</span> -->
+					<h2 class="top-banner__h2">{{book.name}}</h2>
+				</div>
+				<div class="top-banner__text-down">
+					<!-- <h2 class="top-banner__h2">George Orwell</h2> -->
+					<span class="brand-span">{{book.author}}</span>
+				</div>
+				<p>{{book.description}}</p>
+				<a href="{% url 'books_detail' category_slug=book.category.slug book_id=book.id%}" class="brand-button">Discover > </a>
+			</div>
+		</div>
+		{% endfor %}
+	</section>
+	<!-- Top banner end -->
+
+	<!-- Blog -->
+	<section class="fh5co-blog">
+		<div class="site-container">
+			<br><br><br>
+			<h2 class="universal-h2 universal-h2-bckg">Yazarlar</h2>
+			<div class="blog-slider blog-inner">
+				<div class="single-blog">
+					<div class="single-blog__img">
+						<img src="{% static './images/GeorgeOrwell.png' %}" alt="blog image">
+					</div>
+					<div class="single-blog__text">
+						<h4>George Orwell</h4>
+						<span>(25 Haziran 1903; Bihar - 21 Ocak 1950; Londra)</span>
+						<p>Eric Arthur Blair veya daha bilinen takma adıyla George Orwell 20. yüzyıl İngiliz edebiyatının önde gelen kalemleri arasında yer alan İngiliz romancı, gazeteci ve eleştirmen.</p>
+					</div>
+				</div>
+				<div class="single-blog">
+					<div class="single-blog__img">
+						<img src="{% static './images/MattHaig.png' %}" alt="blog image">
+					</div>
+					<div class="single-blog__text">
+						<h4>Matt Haig</h4>
+						<span>(3 Temmuz 1975 doğumlu)</span>
+						<p>Matt Haig bir İngiliz yazar ve gazetecidir. Çocuklar ve yetişkinler için genellikle spekülatif kurgu türünde hem kurgu hem de kurgu olmayan kitaplar yazmıştır .</p>
+					</div>
+				</div>
+				<div class="single-blog">
+					<div class="single-blog__img">
+						<img src="{% static './images/JoseMaurodeVasconcelos.png' %}" alt="blog image">
+					</div>
+					<div class="single-blog__text">
+						<h4>José Mauro de Vasconcelos</h4>
+						<span>(26 Şubat 1920; Rio de Janeiro - 24 Temmuz 1984)</span>
+						<p>Vasconcelos, 26 Şubat 1920 de Rio de Janeiro yakınlarındaki Bangu kasabasında doğdu. Yarı Kızılderili yarı Portekizli, yoksul bir ailede doğan Vasconcelos iki ayrı kültürün de izlerini taşıdı.</p>
+					</div>
+				</div>
+			</div>
+			<div class="books-brand-button">
+				<!-- <a href="./authors" class="brand-button">View More > </a> -->
+			</div>
+		</div>
+		
+	</section>
+	<!-- Blog end -->
+
+	<!-- Books and CD -->
+	<section class="fh5co-books">
+		<div class="site-container">
+			<h2 class="universal-h2 universal-h2-bckg">Kitaplar</h2>
+			<div class="books">
+				<div class="single-book">
+					<a href="#" class="single-book__img">
+						<img src="{% static './images/book-geceYarısıKütüphanesi.png' %}" alt="single book and cd">
+						<div class="single-book_download">
+							<img src="{% static './images/download.svg' %}" alt="book image">
+						</div>
+					</a>
+					<h4 class="single-book__title">Gece Yarısı Kütüphanesi</h4>
+					<span class="single-book__price">38.68 TL</span>
+					<!-- star rating -->
+					<div class="rating">
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+					</div>
+					<!-- star rating end -->
+				</div>
+				<div class="single-book">
+					<a href="#" class="single-book__img">
+						<img src="{% static './images/book-atomikAlışkanlıklar.png' %}" alt="single book and cd">
+						<div class="single-book_download">
+							<img src="{% static './images/download.svg' %}" alt="book image">
+						</div>
+					</a>
+					<h4 class="single-book__title">Atomik Alışkanlıklar</h4>
+					<span class="single-book__price">67.51 TL</span>
+					<!-- star rating -->
+					<div class="rating">
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+					</div>
+					<!-- star rating end -->
+				</div>
+				<div class="single-book">
+					<a href="#" class="single-book__img">
+						<img src="{% static './images/book-şekerPortakalı.png' %}" alt="single book and cd">
+						<div class="single-book_download">
+							<img src="{% static './images/download.svg' %}" alt="book image">
+						</div>
+					</a>
+					<h4 class="single-book__title">Şeker Portakalı</h4>
+					<span class="single-book__price">24.75 TL</span>
+				</div>
+				<div class="single-book">
+					<a href="#" class="single-book__img">
+						<img src="{% static './images/book-veronikaÖlmekİstiyor.png' %}" alt="single book and cd">
+						<div class="single-book_download">
+							<img src="{% static './images/download.svg' %}" alt="book image">
+						</div>
+					</a>
+					<h4 class="single-book__title">Veronika Ölmek İstiyor</h4>
+					<span class="single-book__price">37.54 TL</span>
+				</div>
+			</div>
+			<div class="books-brand-button">
+				<a href="./books" class="brand-button">View More > </a>
+			</div>
+		</div>
+	</section>
+	<!-- Books and CD end -->
+
+	<!-- Counter -->
+	<div class="fh5co-counter counters">
+		<div class="counter-inner site-container">
+			<div class="single-count">
+				<span class="count" >{{total_book}}</span>
+				<div class="single-count__text">
+					<img src="{% static './images/counter-1.png' %}" alt="counter icon">
+					<p>Books</p>
+				</div>
+			</div>
+			<div class="single-count">
+				<span class="count" data-count="600">0</span>
+				<div class="single-count__text">
+					<img src="{% static './images/counter-2.png' %}" alt="counter icon">
+					<p>Authors</p>
+				</div>
+			</div>
+			<div class="single-count">
+				<span class="count" data-count="2000">0</span>
+				<div class="single-count__text">
+					<img src="{% static './images/counter-3.png' %}" alt="counter icon">
+					<p>Sales</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Counter -->
+
+	{% include 'partials/_footer.html' %}
+
+	<!-- Scripts -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/slick.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
+
+{% endblock %}
