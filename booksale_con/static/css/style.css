@@ -622,7 +622,7 @@
   margin-bottom: 70px;
 }
 
-@media (max-width: 559px) {
+@media (max-width: 300px) {
   .books {
     justify-content: space-around;
   }
@@ -649,6 +649,7 @@
   height: 100%;
   background-color: #000;
   transition: 0.3s ease;
+  max-width: 300px;
 }
 
 .single-book .single-book__img .single-book_download img {
