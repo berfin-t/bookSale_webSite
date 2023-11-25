@@ -23,7 +23,7 @@ $ env\Scripts\activate
 $ python -m pip install Pillow
 
 # Install libraries
-$ cd booksale_env
+$ cd booksale_con
 $ pip install -r requirements.txt
 
 # Run it
