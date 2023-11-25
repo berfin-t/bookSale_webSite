@@ -17,7 +17,7 @@ $ python -m venv env
 $ env\Scripts\activate
 
 # Install libraries
-$ cd berfinblog_con
+$ cd booksale_env
 $ pip install -r requirements.txt
 
 # Run it
