@@ -13,8 +13,14 @@ This project was made to create a dynamic website with Django and to learn Djang
 # Create env
 $ python -m venv env
 
+# Install Django
+$ pip install Django
+
 # Activate env
 $ env\Scripts\activate
+
+# Install Pillow
+$ python -m pip install Pillow
 
 # Install libraries
 $ cd booksale_env
